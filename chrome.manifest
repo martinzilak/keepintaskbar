@@ -1,0 +1,2 @@
+content keepintaskbar chrome/content/
+overlay chrome://messenger/content/messenger.xul chrome://keepintaskbar/content/overlay.xul
