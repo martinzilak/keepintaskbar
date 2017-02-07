@@ -1,13 +1,14 @@
-<?xml version="1.0"?>
-
-<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+<?xml version='1.0' encoding='utf-8'?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 
   <Description about="urn:mozilla:install-manifest">
-    <em:id>keepintaskbar@martin.zilak</em:id>
+    <em:id>keepintaskbar@zilak.sk</em:id>
     <em:name>Keep in Taskbar</em:name>
     <em:version>1.0</em:version>
     <em:creator>Martin Zilak</em:creator>
+    <em:type>2</em:type>
+    <em:description>A simple plugin that makes the Close button behave exactly like the Minimize one.</em:description>
+    <em:iconURL>chrome://keepintaskbar/content/icon.png</em:iconURL>
    
     <em:targetApplication>
       <Description>
