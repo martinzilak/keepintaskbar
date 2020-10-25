@@ -5,11 +5,15 @@ var CloseBlocker = class extends ExtensionCommon.ExtensionAPI {
     return {
       CloseBlocker: {
         install() {
+          const windowSet = new Set();
+
           function closeListener(event) {
             const currentTarget = event.currentTarget;
-            if (currentTarget.windowState.valueOf() != 2) {
+            // Block the event's default action unless the main window is already
+            // minimized or there are multiple main windows.
+            if (currentTarget.windowState.valueOf() != 2 && windowSet.size == 1) {
               currentTarget.minimize();
-              event.preventDefault(currentTarget.windowState.valueOf());
+              event.preventDefault();
             }
           }
 
@@ -20,7 +24,6 @@ var CloseBlocker = class extends ExtensionCommon.ExtensionAPI {
           }
 
           const extensionId = context.extension.id;
-          const windowSet = new Set();
 
           // Listen for the main Thunderbird windows opening.
           ExtensionSupport.registerWindowListener(extensionId, {
@@ -36,8 +39,6 @@ var CloseBlocker = class extends ExtensionCommon.ExtensionAPI {
               aWindow.addEventListener("click", clickListener, false);
             },
             onUnloadWindow(aWindow) {
-              // This should not actually happen, but just in case ...
-              console.log("Unexpected window unload event on window:", aWindow);
               windowSet.delete(aWindow);
             }
           });
