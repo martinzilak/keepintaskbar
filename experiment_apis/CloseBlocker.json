@@ -1,0 +1,14 @@
+[
+  {
+    "namespace": "CloseBlocker",
+    "functions": [
+      {
+        "name": "install",
+        "type": "function",
+        "description": "Installs the window close blocker.",
+        "async": false,
+        "parameters": []
+      }
+    ]
+  }
+]
